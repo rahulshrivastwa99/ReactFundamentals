@@ -3,7 +3,7 @@ function Random() {
   return (
     <h1 style={{ backgroundColor: "#376" }}>
       Random number is: {Math.round(number)}
-    </h1>
+    </h1> //dynamic content can be written using brackets
   );
 }
 
