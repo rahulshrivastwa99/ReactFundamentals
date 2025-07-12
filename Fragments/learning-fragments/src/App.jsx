@@ -1,7 +1,9 @@
 import React from "react";
-
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Fooditems from "./components/Fooditems";
+import ErrorMsg from "./components/ErrorMsg";
+
 function App() {
   let foodItems = [
     "Dal",
@@ -21,21 +23,16 @@ function App() {
   // }
 
   return (
-    <>
-      {/* //OR WHEN AN USE <React.Fragment></React.Fragment> */}
+    <React.Fragment>
+      {/* //OR WHEN AN USE <></> */}
       {/* dont use extra div in app use react fragments for removing extra div */}
       <h1>Healthy Food</h1>
       {/* {emptyMessage} */}
       {/* {foodItems.length === 0 ? <h3> I am still Hungry</h3> : null} */}
-      {foodItems.length === 0 && <h3> I am still Hungry</h3>}
-      <ul className="list-group">
-        {foodItems.map((item) => (
-          <li key={item} className="list-group-item">
-            {item}
-          </li>
-        ))}
-      </ul>
-    </>
+      {/* {foodItems.length === 0 && <h3> I am still Hungry</h3>} */}
+      <ErrorMsg />
+      <Fooditems></Fooditems>
+    </React.Fragment>
   );
 }
 
