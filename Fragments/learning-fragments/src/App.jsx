@@ -30,8 +30,8 @@ function App() {
       {/* {emptyMessage} */}
       {/* {foodItems.length === 0 ? <h3> I am still Hungry</h3> : null} */}
       {/* {foodItems.length === 0 && <h3> I am still Hungry</h3>} */}
-      <ErrorMsg />
-      <Fooditems></Fooditems>
+      <ErrorMsg items={foodItems} />
+      <Fooditems foodItems={foodItems}></Fooditems>
     </React.Fragment>
   );
 }
