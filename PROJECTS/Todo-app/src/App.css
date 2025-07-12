@@ -1,23 +1,16 @@
-h1 {
- font-weight: 700;
- font-size: 45px;
- margin: 10px;
- margin-bottom: 20px;
-}
+
 
 
 input {
   width: 100%;
 }
 
-.todo-container {
-  text-align: left;
-}
+
 
 
 .apna-button {
   min-width: 80px;
 }
 .sec-row {
-margin: 10px 5px;
+  margin: 10px 5px;
 }
