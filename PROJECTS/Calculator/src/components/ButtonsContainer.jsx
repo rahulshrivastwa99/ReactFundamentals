@@ -1,6 +1,6 @@
 import styles from "./ButtonsContainer.module.css";
 
-const ButtonsContainer = () => {
+const ButtonsContainer = ({ onButtonClick }) => {
   const buttonNames = [
     "C",
     "9",
@@ -21,11 +21,22 @@ const ButtonsContainer = () => {
     ".",
   ];
 
+  const getButtonClass = (buttonName) => {
+    if (buttonName === "C") return styles.clearButton;
+    if (buttonName === "=") return styles.equalsButton;
+    if (["/", "*", "-", "+"].includes(buttonName)) return styles.operatorButton;
+    return styles.digitButton;
+  };
+
   return (
-    <div className="buttonContainer">
-      {buttonNames.map((buttonNames) => (
-        <button key={buttonNames} className={styles.button}>
-          {buttonNames}
+    <div className={styles.buttonContainer}>
+      {buttonNames.map((buttonName) => (
+        <button
+          key={buttonName}
+          className={`${styles.button} ${getButtonClass(buttonName)}`}
+          onClick={() => onButtonClick(buttonName)}
+        >
+          {buttonName}
         </button>
       ))}
     </div>
