@@ -57,6 +57,7 @@ const Sidebar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
+          {/* h1 updated */}
           <img
             src="https://github.com/mdo.png"
             alt=""
