@@ -1,29 +1,40 @@
-const Sidebar = () => {
+const Sidebar = ({ selectedTab }) => {
   return (
     <div
-      class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
+      className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
       style={{ width: "280px" }}
     >
       {" "}
       <a
         href="/"
-        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
       >
         {" "}
-        <svg class="bi pe-none me-2" width="40" height="32" aria-hidden="true">
+        <svg
+          className="bi pe-none me-2"
+          width="40"
+          height="32"
+          aria-hidden="true"
+        >
           <use xlinkHref="#bootstrap"></use>
         </svg>{" "}
-        <span class="fs-4">Sidebar</span>{" "}
+        <span className="fs-4">Sidebar</span>{" "}
       </a>{" "}
       <hr />{" "}
-      <ul class="nav nav-pills flex-column mb-auto">
+      <ul className="nav nav-pills flex-column mb-auto">
         {" "}
-        <li class="nav-item">
+        <li className="nav-item">
           {" "}
-          <a href="#" class="nav-link active" aria-current="page">
+          <a
+            href="#"
+            className={`nav-link text -white ${
+              selectedTab === "Home" && "active"
+            }`}
+            aria-current="page"
+          >
             {" "}
             <svg
-              class="bi pe-none me-2"
+              className="bi pe-none me-2"
               width="16"
               height="16"
               aria-hidden="true"
@@ -35,10 +46,15 @@ const Sidebar = () => {
         </li>{" "}
         <li>
           {" "}
-          <a href="#" class="nav-link text-white">
+          <a
+            href="#"
+            className={`nav-link text -white ${
+              selectedTab === "Create Post" && "active"
+            }`}
+          >
             {" "}
             <svg
-              class="bi pe-none me-2"
+              className="bi pe-none me-2"
               width="16"
               height="16"
               aria-hidden="true"
@@ -50,10 +66,10 @@ const Sidebar = () => {
         </li>{" "}
       </ul>{" "}
       <hr />
-      <div class="dropdown">
+      <div className="dropdown">
         <a
           href="#"
-          class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+          className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -63,7 +79,7 @@ const Sidebar = () => {
             alt=""
             width="32"
             height="32"
-            class="rounded-circle me-2"
+            className="rounded-circle me-2"
           />
           <strong>mdo</strong>
         </a>
