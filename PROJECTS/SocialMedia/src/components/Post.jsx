@@ -2,7 +2,7 @@ import { AiFillDelete } from "react-icons/ai";
 
 const Post = ({ post }) => {
   return (
-    <div className="card post-card" style={{ width: "18rem" }}>
+    <div className="card post-card" style={{ width: "30rem" }}>
       <div className="card-body">
         <h5 className="card-title">
           {post.title}
@@ -15,6 +15,9 @@ const Post = ({ post }) => {
         {post.tags.map((tag) => (
           <span className="badge text-bg-primary hashtag">{tag}</span>
         ))}
+        <div class="alert alert-success reactions" role="alert">
+          this post hasbeen reacted by {post.reactions} users
+        </div>
       </div>
     </div>
   );
