@@ -43,19 +43,19 @@ const DEFAULT_POST_LIST = [
   {
     id: 1,
     title: "Post 1",
-    content: "This is post 1",
+    content: "Hi Developer",
     reactions: 10,
     userId: "user-9",
-    tags: ["tag1", "tag2"],
+    tags: ["Reactjs", "Nodejs"],
   },
 
   {
     id: 2,
     title: "Post 2",
-    content: "This is post 2",
+    content: "Hello Coder",
     reactions: 15,
-    userId: "user-9",
-    tags: ["tag3", "tag4"],
+    userId: "user-11",
+    tags: ["DSA", "DynamicProgramming"],
   },
 ];
 

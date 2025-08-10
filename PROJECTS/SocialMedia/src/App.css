@@ -15,7 +15,7 @@
   margin: 20px 50px;
   padding: 20px;
   border: 1px solid #ddd;
-  /* min-width: 30rem; */
+  min-width: 30rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0)
 
@@ -27,4 +27,10 @@
 
 .reactions{
   width: 100%;
+  margin: 15px 0 0 0;
+}
+
+.create-post{
+  width: 80%;
+  margin-left: 10%;
 }

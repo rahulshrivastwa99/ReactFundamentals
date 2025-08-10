@@ -1,42 +1,117 @@
+import { useState, useContext } from "react";
+import { PostList } from "../store/post-list-store";
+
 const Createpost = () => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [reactions, setReactions] = useState(0);
+  const [userId, setUserId] = useState("");
+  const [tags, setTags] = useState("");
+
+  const { addPost } = useContext(PostList);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newPost = {
+      id: Date.now(),
+      title,
+      content,
+      reactions: parseInt(reactions) || 0,
+      userId: userId || "user-" + Math.floor(Math.random() * 1000),
+      tags: tags
+        .split(",")
+        .map((tag) => tag.trim())
+        .filter((tag) => tag),
+    };
+
+    addPost(newPost);
+
+    // Reset form
+    setTitle("");
+    setContent("");
+    setReactions(0);
+    setUserId("");
+    setTags("");
+  };
+
   return (
-    <form>
+    <form className="create-post" onSubmit={handleSubmit}>
       <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
-          Email address
+        <label htmlFor="title" className="form-label">
+          Post Title
         </label>
         <input
-          type="email"
+          type="text"
           className="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
+          id="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Enter post title"
+          required
         />
-        <div id="emailHelp" className="form-text">
-          We'll never share your email with anyone else.
-        </div>
       </div>
+
       <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
-          Password
+        <label htmlFor="content" className="form-label">
+          Post Content
         </label>
-        <input
-          type="password"
+        <textarea
           className="form-control"
-          id="exampleInputPassword1"
+          id="content"
+          rows="4"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Tell us more about it"
+          required
         />
       </div>
-      <div className="mb-3 form-check">
-        <input
-          type="checkbox"
-          className="form-check-input"
-          id="exampleCheck1"
-        />
-        <label className="form-check-label" htmlFor="exampleCheck1">
-          Check me out
+
+      <div className="mb-3">
+        <label htmlFor="reactions" className="form-label">
+          Initial Reactions
         </label>
+        <input
+          type="number"
+          className="form-control"
+          id="reactions"
+          value={reactions}
+          onChange={(e) => setReactions(e.target.value)}
+          placeholder="0"
+          min="0"
+        />
       </div>
+
+      <div className="mb-3">
+        <label htmlFor="userId" className="form-label">
+          User ID
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="userId"
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
+          placeholder="Enter user ID (optional)"
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="tags" className="form-label">
+          Tags (comma-separated)
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="tags"
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+          placeholder="tag1, tag2, tag3"
+        />
+      </div>
+
       <button type="submit" className="btn btn-primary">
-        Submit
+        Create Post
       </button>
     </form>
   );
