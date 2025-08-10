@@ -27,6 +27,9 @@ const Createpost = () => {
 
     addPost(newPost);
 
+    // Show alert when post is created
+    // alert("Post is created successfully!");
+
     // Reset form
     setTitle("");
     setContent("");
